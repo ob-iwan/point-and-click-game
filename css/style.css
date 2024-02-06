@@ -1,0 +1,90 @@
+body {
+    display: grid;
+    grid-template-columns: auto 400px auto;
+    grid-template-rows: auto 304px auto;
+}
+
+#title {
+    grid-column-start: 2;
+    grid-row-start: 1;
+}
+
+#gameWindow {
+    width: 400px;
+    height: 304px;
+    background-color: #250ef4;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    position: relative;
+}
+
+#inventoryBox {
+    width: 90px;
+    height: 40px;
+    background-color: #000;
+    top: 10px;
+    left: 10px;
+}
+
+#dialogBar {
+    bottom: 0px;
+}
+
+#setMainDialog {
+    position: relative;
+    width: 400px;
+    height: 32px;
+    background-color: #fff;
+}
+
+#heroAvatar {
+    width: 16px;
+    height: 16px;
+    background-color: rgb(255, 228, 192);
+}
+
+#heroSpeach {
+    width: 150px;
+    height: 32px;
+    background-color: #000;
+    left: 16px;
+}
+
+#interactSpeach {
+    width: 150px;
+    height: 32px;
+    background-color: #000;
+    right: 16px;
+}
+
+#interactAvatar {
+    width: 16px;
+    height: 16px;
+    background-color: rgb(220, 170, 104);
+    right: 0px;
+}
+
+#hero {
+    width: 16px;
+    height: 16px;
+    background-color: rgb(243, 8, 196);
+}
+
+#tileMap {}
+
+.background {
+    position: absolute;
+    z-index: 0;
+}
+
+.heroClass {
+    position: absolute;
+    z-index: 100;
+    top: 152px;
+    left: 200px;
+}
+
+.foreground {
+    position: absolute;
+    z-index: 1000;
+}

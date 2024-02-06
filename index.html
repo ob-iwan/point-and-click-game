@@ -1,53 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial scale=1.0">
-        <title>Point and click adventure</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
 
-    <body>
-        <div id="title">
-            <h1 id="mainTitle">INTENSE TITLE</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial scale=1.0">
+    <title>Point and click adventure</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="title">
+        <h1 id="mainTitle">INTENSE TITLE</h1>
+    </div>
+    <div id="gameWindow">
+
+        <!--inventory box-->
+        <div id="inventoryBox" class="foreground">
+
         </div>
-        <div id="gameWindow">
 
-            <!--inventory box-->
-            <div id="inventoryBox">
+        <!--dialog bar-->
+        <div id="dialogBar" class="foreground">
+            <div id="setMainDialog">
 
-            </div>
+                <!--left-->
+                <div id="heroAvatar" class="foreground">
 
-            <!--dialog bar-->
-            <div id="dialogBar">
-                <div id="setMainDialog">
-                    
-                    <!--left-->
-                    <div id="heroAvatar">
+                </div>
+                <div id="heroSpeach" class="foreground">
 
-                    </div>
-                    <div id="heroSpeach">
+                </div>
 
-                    </div>
+                <!--right-->
+                <div id="interactSpeach" class="foreground">
 
-                    <!--right-->
-                    <div id="interactSpeach">
+                </div>
+                <div id="interactAvatar" class="foreground">
 
-                    </div>
-                    <div id="interactAvatar">
-
-                    </div>
                 </div>
             </div>
-
-            <!--foreground elements-->
-            <div id="pillar"></div>
-
-            <!--hero-->
-            <div id="hero"></div>
-
-            <!--background elements-->
-            <div id="tileMap"></div>
         </div>
-    </body>
+
+        <!--foreground elements-->
+
+        <!--hero-->
+        <div id="hero" class="heroClass"></div>
+
+        <!--background elements-->
+        <div id="tileMap" class="background"></div>
+    </div>
+</body>
+
 </html>
