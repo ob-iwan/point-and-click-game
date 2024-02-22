@@ -10,10 +10,13 @@ body {
     grid-row-start: 1;
 }
 
+#mainTitle {
+    color: white;
+}
+
 #gameWindow {
     width: 800px;
     height: 608px;
-    background-color: #250ef4;
     grid-column-start: 2;
     grid-row-start: 2;
     position: relative;
@@ -42,7 +45,11 @@ body {
 #heroAvatar {
     width: 64px;
     height: 64px;
-    background-color: rgb(255, 228, 192);
+}
+
+#heroAvatarImg {
+    width: 64px;
+    height: 64px;
 }
 
 #heroSpeach {
@@ -64,37 +71,46 @@ body {
     right: 0px;
 }
 
-#tree {
-    width: 64px;
-    height: 64px;
-    background-color: #00ff00;
-    left: 400px;
-    top: 150px;
-    opacity: 1;
-}
-
 #coin {
     width: 16px;
     height: 16px;
     background-color: #ebca2a;
     left: 230px;
     top: 50px;
-    opacity: 1;
 }
 
 #key {
-    width: 24px;
-    height: 24px;
+    width: 16px;
+    height: 16px;
     background-color: #eb942a;
     left: 300px;
     top: 300px;
-    opacity: 1;
+}
+
+#chest {
+    width: 32px;
+    height: 32px;
+    left: 704px;
+    top: 32px;
+}
+
+#chestDoor {
+    width: 64px;
+    height: 32px;
+    top: 128px;
+    left: 640px;
+}
+
+#torch {
+    width: 32px;
+    height: 20px;
+    top: 116px;
+    left: 384px;
 }
 
 #hero {
     width: 32px;
     height: 32px;
-    background-color: rgb(243, 8, 196);
 }
 
 #tileMap {}

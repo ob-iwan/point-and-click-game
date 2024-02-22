@@ -26,7 +26,9 @@
 
                 <!--left-->
                 <div id="heroAvatar" class="foreground">
-
+                    <img id="heroAvatarImg"
+                        src="assets/assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest1/v1/priest1_v1_1.png"
+                        alt="hero avatar">
                 </div>
                 <div id="heroSpeach" class="foreground">
 
@@ -45,13 +47,20 @@
         <!--foreground elements-->
         <div id="key" class="foreground"></div>
         <div id="coin" class="foreground"></div>
-        <div id="tree" class="foreground"></div>
+        <div id="chest" class="foreground"></div>
+        <div id="chestDoor" class="foreground"></div>
+        <div id="torch" class="foreground"></div>
 
         <!--hero-->
-        <div id="hero" class="heroClass"></div>
+        <div id="hero" class="heroClass">
+            <img src="assets/assets/2D Pixel Dungeon Asset Pack v2.0/2D Pixel Dungeon Asset Pack/Character_animation/priests_idle/priest1/v1/priest1_v1_1.png"
+                alt="hero" id="heroImage" draggable="false" width="32" height="32">
+        </div>
 
         <!--background elements-->
-        <div id="tileMap" class="background"><img src="assets/test map.tmx"></div>
+        <div id="tileMap" class="background">
+            <img src="assets/test map.png" alt="tilemap" draggable="false" width="800" height="608">
+        </div>
     </div>
 </body>
 
