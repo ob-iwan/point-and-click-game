@@ -45,11 +45,12 @@ body {
 #heroAvatar {
     width: 64px;
     height: 64px;
+    top: -52px;
 }
 
 #heroAvatarImg {
-    width: 64px;
-    height: 64px;
+    width: 128px;
+    height: 128px;
 }
 
 #heroSpeach {
@@ -111,6 +112,14 @@ body {
 #hero {
     width: 32px;
     height: 32px;
+}
+
+#hiddenRoom {
+    width: 158px;
+    height: 128px;
+    background-color: #2c141a;
+    opacity: 0.95;
+    left: 625px;
 }
 
 #tileMap {}
