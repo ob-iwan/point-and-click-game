@@ -32,6 +32,15 @@ function runGame() {
     const hero = document.getElementById("hero");
     const offsetHero = 16;
 
+    //audio for dialog
+    const heroAudio = document.getElementById("heroAudio");
+    const interactAudio = document.getElementById("interactAudio");
+
+    //speechBubbles
+    const heroSpeech = document.getElementById("heroSpeech");
+    const interactSpeech = document.getElementById("interactSpeech");
+    const interactAvatar = document.getElementById("interactAvatar");
+
     //things
     const tree = document.getElementById("tree");
     const coin = document.getElementById("coin");
@@ -43,52 +52,59 @@ function runGame() {
         var y = e.clientY - rect.top;
 
         //offset so hero is in middle of mouse
-        if (e.target.id !== "heroImage") {
-            hero.style.left = x - offsetHero + "px";
-            hero.style.top = y - offsetHero + "px";
-        }
-        switch (e.target.id) {
-            case "coin":
-                console.log("you've found a coin!");
-                document.getElementById("coin").remove();
-                changeInventory("coin", "add");
-                break;
-            case "key":
-                console.log("you've found a key!");
-                document.getElementById("key").remove();
-                changeInventory("key", "add");
+        if (heroSpeech.style.opacity == 0 && interactSpeech.style.opacity == 0) {
+            if (e.target.id !== "heroImage") {
+                hero.style.left = x - offsetHero + "px";
+                hero.style.top = y - offsetHero + "px";
+            }
+            switch (e.target.id) {
+                case "coin":
+                    showMessage(heroSpeech, "you've found a coin!", heroAudio);
+                    document.getElementById("coin").remove();
+                    changeInventory("coin", "add");
+                    break;
+                case "key":
+                    showMessage(heroSpeech, "you've found a key!", heroAudio);
+                    document.getElementById("key").remove();
+                    changeInventory("key", "add");
 
-                break;
-            case "chest":
-                if (!gameState.hasSword) {
-                    console.log("you've found a sword!");
-                    changeInventory("sword", "add");
-                    gameState.hasSword = true;
-                }
-                else {
-                    console.log("The chest is empty");
-                }
-                break;
-            case "chestDoor":
-                if (checkItem("key")) {
-                    console.log("The door has opened :o");
-                    changeInventory("key", "remove");
-                    document.getElementById("chestDoor").remove();
-                    document.getElementById("hiddenRoom").remove();
-                }
-                else if (checkItem("coin")) {
-                    console.log("You used a coin. \n"
-                        + "It wasn't very effective");
-                }
-                else {
-                    console.log("sheiße the door is locked!");
-                }
-                break;
-            case "torch":
-                console.log("go away");
-                break;
-            default:
-                break;
+                    break;
+                case "chest":
+                    if (!gameState.hasSword) {
+                        showMessage(heroSpeech, "you've found a sword!", heroAudio);
+                        changeInventory("sword", "add");
+                        gameState.hasSword = true;
+                    }
+                    else {
+                        showMessage(heroSpeech, "The chest is empty", heroAudio);
+                    }
+                    break;
+                case "chestDoor":
+                    if (checkItem("key")) {
+                        showMessage(heroSpeech, "The door has opened :o", heroAudio);
+                        document.getElementById("chestDoor").remove();
+                        document.getElementById("hiddenRoom").remove();
+                    }
+                    else if (checkItem("coin")) {
+                        showMessage(heroSpeech, "You used a coin. \n"
+                            + "It wasn't very effective", heroAudio);
+                    }
+                    else {
+                        showMessage(heroSpeech, "sheiße the door is locked!", heroAudio);
+                    }
+                    break;
+                case "torch":
+                    showMessage(interactSpeech, "Go away", interactAudio);
+                    setTimeout(function () { interactAvatar.style.opacity = 1; }, 2001);
+                    setTimeout(showMessage, 4001, heroSpeech, "You can talk?!", heroAudio);
+                    setTimeout(showMessage, 8001, interactSpeech, "Yea so what?", interactAudio);
+                    setTimeout(showMessage, 12001, heroSpeech, "I'm just so confused...", heroAudio);
+                    setTimeout(showMessage, 16001, interactSpeech, "What gives, just go", interactAudio);
+                    setTimeout(function () { interactAvatar.style.opacity = 0; }, 20001);
+                    break;
+                default:
+                    break;
+            }
         }
         updateInventory(gameState.inventory, inventoryList);
     }
@@ -140,5 +156,30 @@ function runGame() {
      */
     function checkItem(itemName) {
         return gameState.inventory.includes(itemName);
+    }
+
+    /**
+     * Puts the dialog on screen on either one of the bubbles
+     * @param {getElementById} targetBubble 
+     * @param {string} message 
+     * @param {getElementById} targetSound
+     */
+    function showMessage(targetBubble, message, targetSound) {
+        targetSound.currentTime = 0;
+        targetSound.play();
+        targetBubble.innerText = message;
+        targetBubble.style.opacity = 1;
+        setTimeout(hideMessage, 4000, targetBubble, targetSound);
+    }
+
+    /**
+     * hides message and pauses audio
+     * @param {getElementById} targetBubble 
+     * @param {getElementById} targetSound
+     */
+    function hideMessage(targetBubble, targetSound) {
+        targetSound.pause();
+        targetBubble.innerText = "...";
+        targetBubble.style.opacity = 0;
     }
 }

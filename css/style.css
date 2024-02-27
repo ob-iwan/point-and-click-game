@@ -35,11 +35,17 @@ body {
     bottom: 0px;
 }
 
+#brownBar {
+    bottom: 0px;
+    height: 32px;
+    width: 800px;
+    background-color: #2c141a;
+}
+
 #setMainDialog {
     position: relative;
     width: 800px;
     height: 64px;
-    background-color: #825021;
 }
 
 #heroAvatar {
@@ -53,23 +59,32 @@ body {
     height: 128px;
 }
 
-#heroSpeach {
+#heroSpeech {
     width: 300px;
-    height: 64px;
-    left: 64px;
+    left: 128px;
+    background-color: white;
+    color: black;
+    opacity: 0;
 }
 
-#interactSpeach {
+#interactSpeech {
     width: 300px;
-    height: 64px;
     right: 64px;
+    background-color: white;
+    color: black;
+    opacity: 0;
 }
 
 #interactAvatar {
     width: 64px;
     height: 64px;
-    background-color: rgb(220, 170, 104);
     right: 0px;
+    opacity: 0;
+}
+
+#interactImg {
+    width: 80px;
+    height: 80px;
 }
 
 #coin {
@@ -141,4 +156,11 @@ body {
     position: absolute;
     z-index: 1000;
     transition: all 1s ease;
+}
+
+.speechBubble {
+    border-radius: 60px;
+    padding: 5px 5px 5px 20px;
+    user-select: none;
+    cursor: default;
 }
