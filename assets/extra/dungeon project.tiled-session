@@ -1,0 +1,66 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "exportAsImage.includeBackgroundColor": false,
+    "exportAsImage.useCurrentScale": true,
+    "fileStates": {
+        "character saver.tmx": {
+            "scale": 11,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 23.31818181818182,
+                "y": 19.500000000000007
+            }
+        },
+        "characters.tsx": {
+            "scaleInDock": 4
+        },
+        "dungeon.tsx": {
+            "scaleInDock": 1
+        },
+        "exports/test.tmx": {
+            "scale": 2.86425,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 235.48922056384743,
+                "y": 152.046783625731
+            }
+        },
+        "minmap.tmx": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 199.625,
+                "y": 150.875
+            }
+        },
+        "test map.tmx": {
+            "scale": 3.5719999999999996,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 227.74356103023518,
+                "y": 152.1556550951848
+            }
+        }
+    },
+    "last.exportedFilePath": "C:/Users/Iwanb/point and click game/assets/exports",
+    "map.height": 3,
+    "map.lastUsedExportFilter": "Alle Bestanden (*)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 3,
+    "openFiles": [
+    ],
+    "project": "dungeon project.tiled-project",
+    "recentFiles": [
+        "character saver.tmx",
+        "test map.tmx",
+        "exports/test.tmx"
+    ]
+}

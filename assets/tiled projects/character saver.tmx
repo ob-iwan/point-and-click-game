@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="3" height="3" tilewidth="16" tileheight="16" infinite="0" nextlayerid="2" nextobjectid="1">
+ <tileset firstgid="1" source="Dungeon_Characters.tsx"/>
+ <tileset firstgid="15" source="Dungeon_Tileset.tsx"/>
+ <layer id="1" name="Tilelaag 1" width="3" height="3">
+  <data encoding="csv">
+0,0,0,
+0,99,0,
+0,0,0
+</data>
+ </layer>
+</map>
