@@ -1,0 +1,118 @@
+{
+    "Map/SizeTest": {
+        "height": 4300,
+        "width": 2
+    },
+    "activeFile": "tiled projects/icon saver.tmx",
+    "expandedProjectPaths": [
+        ".",
+        "tiled projects",
+        "exports"
+    ],
+    "exportAsImage.useCurrentScale": true,
+    "fileStates": {
+        "Dungeon_Characters.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 4,
+            "scaleInEditor": 11
+        },
+        "Dungeon_Tileset.tsx": {
+            "dynamicWrapping": false,
+            "scaleInDock": 3,
+            "scaleInEditor": 8
+        },
+        "character saver.tmx": {
+            "scale": 11,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 23.31818181818182,
+                "y": 19.500000000000007
+            }
+        },
+        "characters.tsx": {
+            "scaleInDock": 4
+        },
+        "dungeon.tsx": {
+            "scaleInDock": 1
+        },
+        "exports/test.tmx": {
+            "scale": 2.86425,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 235.48922056384743,
+                "y": 152.046783625731
+            }
+        },
+        "minmap.tmx": {
+            "scale": 4,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 199.625,
+                "y": 150.875
+            }
+        },
+        "test map.tmx": {
+            "scale": 3.5719999999999996,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 227.74356103023518,
+                "y": 152.1556550951848
+            }
+        },
+        "tiled projects/Dungeon_Characters.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "tiled projects/Dungeon_Tileset.tsx": {
+            "dynamicWrapping": true,
+            "scaleInDock": 1
+        },
+        "tiled projects/character saver.tmx": {
+            "scale": 16,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 19.28125,
+                "y": 21.90625
+            }
+        },
+        "tiled projects/icon saver.tmx": {
+            "scale": 78.85,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 6.79137603043754,
+                "y": 8.008877615726062
+            }
+        },
+        "tiled projects/minmap.tmx": {
+            "scale": 8,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 284.8125,
+                "y": 158.1875
+            }
+        }
+    },
+    "map.height": 1,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 1,
+    "openFiles": [
+        "tiled projects/minmap.tmx",
+        "tiled projects/character saver.tmx",
+        "Dungeon_Tileset.tsx",
+        "Dungeon_Characters.tsx",
+        "tiled projects/icon saver.tmx"
+    ],
+    "project": "dungeon project.tiled-project",
+    "recentFiles": [
+        "tiled projects/minmap.tmx",
+        "tiled projects/character saver.tmx",
+        "Dungeon_Tileset.tsx",
+        "Dungeon_Characters.tsx",
+        "tiled projects/icon saver.tmx",
+        "character saver.tmx",
+        "test map.tmx",
+        "exports/test.tmx"
+    ]
+}

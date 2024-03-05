@@ -2,8 +2,18 @@
 let gameState = {
     "inventory": [],
     "hasSword": false,
-    "keyPickedUp": false
+    "keyPickedUp": false,
+    "coinPickedUp": false,
+    "chestOpened": false,
+    "doorOpened": false,
+    "enemy1ded": false,
+    "enemy2ded": false,
+    "enemy3ded": false,
+    "enemy4ded": false
 }
+
+//if ran removes data
+localStorage.removeItem("gameState");
 
 if (Storage) {
     if (localStorage.gameState) {
@@ -21,9 +31,10 @@ const gameWindow = document.getElementById("gameWindow");
 //inventory box
 const inventoryList = document.getElementById("inventoryList");
 
-//main character
+//characters
 const hero = document.getElementById("hero");
 const offsetHero = 16;
+const priest = document.getElementById("priest");
 
 //audio for dialog
 const heroAudio = document.getElementById("heroAudio");
@@ -35,79 +46,116 @@ const interactSpeech = document.getElementById("interactSpeech");
 const interactAvatar = document.getElementById("interactAvatar");
 
 //things
-const tree = document.getElementById("tree");
 const coin = document.getElementById("coin");
 const key = document.getElementById("key");
 
 if (gameState.keyPickedUp) {
     document.getElementById("key").remove();
 }
+if (gameState.chestOpened) {
 
-gameWindow.onclick = function (e) {
-    var rect = gameWindow.getBoundingClientRect();
-    var x = e.clientX - rect.left;
-    var y = e.clientY - rect.top;
-
-    //offset so hero is in middle of mouse
-    if (heroSpeech.style.opacity == 0 && interactSpeech.style.opacity == 0) {
-        if (e.target.id !== "heroImage") {
-            hero.style.left = x - offsetHero + "px";
-            hero.style.top = y - offsetHero + "px";
-        }
-        switch (e.target.id) {
-            case "coin":
-                showMessage(heroSpeech, "you've found a coin!", heroAudio);
-                document.getElementById("coin").remove();
-                changeInventory("coin", "add");
-                break;
-            case "key":
-                showMessage(heroSpeech, "you've found a key!", heroAudio);
-                document.getElementById("key").remove();
-                changeInventory("key", "add");
-                gameState.keyPickedUp = true;
-                saveGameState(gameState);
-                break;
-            case "chest":
-                if (!gameState.hasSword) {
-                    showMessage(heroSpeech, "you've found a sword!", heroAudio);
-                    changeInventory("sword", "add");
-                    gameState.hasSword = true;
-                }
-                else {
-                    showMessage(heroSpeech, "The chest is empty", heroAudio);
-                }
-                break;
-            case "chestDoor":
-                if (checkItem("key")) {
-                    showMessage(heroSpeech, "The door has opened :o", heroAudio);
-                    document.getElementById("chestDoor").remove();
-                    document.getElementById("hiddenRoom").remove();
-                }
-                else if (checkItem("coin")) {
-                    showMessage(heroSpeech, "You used a coin. \n"
-                        + "It wasn't very effective", heroAudio);
-                }
-                else {
-                    showMessage(heroSpeech, "sheiße the door is locked!", heroAudio);
-                }
-                break;
-            case "torch":
-                showMessage(interactSpeech, "Go away", interactAudio);
-                setTimeout(function () { interactAvatar.style.opacity = 1; }, 2001);
-                setTimeout(showMessage, 4001, heroSpeech, "You can talk?!", heroAudio);
-                setTimeout(showMessage, 8001, interactSpeech, "Yea so what?", interactAudio);
-                setTimeout(showMessage, 12001, heroSpeech, "I'm just so confused...", heroAudio);
-                setTimeout(showMessage, 16001, interactSpeech, "What gives, just go", interactAudio);
-                setTimeout(function () { interactAvatar.style.opacity = 0; }, 20001);
-                break;
-            default:
-                break;
-        }
-    }
 }
+if (gameState.coinPickedUp) {
+
+}
+if (gameState.doorOpened) {
+
+}
+if (gameState.hasSword) {
+
+}
+
 updateInventory(gameState.inventory, inventoryList);
 
+gameWindow.onclick = function (e) {
+    if (e.target.className !== "unclickable") {
+        var rect = gameWindow.getBoundingClientRect();
+        var x = e.clientX - rect.left;
+        var y = e.clientY - rect.top;
 
+        //offset so hero is in middle of mouse
+        if (heroSpeech.style.opacity == 0 && interactSpeech.style.opacity == 0) {
+            if (e.target.id !== "heroImage" && e.target.id !== "brownBar" && e.target.id !== "heroSpeech"
+                && e.target.id !== "heroAvatarImg" && e.target.id !== "interactSpeech" && e.target.id !== "InteractAvatarImg") {
+                hero.style.left = x - offsetHero + "px";
+                hero.style.top = y - offsetHero + "px";
+                document.getElementById("walkAudio").currentTime = 0;
+                document.getElementById("walkAudio").play();
+            }
+            switch (e.target.id) {
+                case "coinImg":
+                    showMessage(heroSpeech, "you've found a coin!", heroAudio);
+                    document.getElementById("coin").remove();
+                    changeInventory("coin", "add");
+                    gameState.coinPickedUp = true;
+                    saveGameState(gameState);
+                    break;
+                case "keyImg":
+                    showMessage(heroSpeech, "you've found a key!", heroAudio);
+                    document.getElementById("key").remove();
+                    changeInventory("key", "add");
+                    gameState.keyPickedUp = true;
+                    saveGameState(gameState);
+                    break;
+                case "chestImg":
+                    if (!gameState.hasSword) {
+                        showMessage(heroSpeech, "you've found a sword!", heroAudio);
+                        changeInventory("sword", "add");
+                        gameState.hasSword = true;
+                        gameState.chestOpened = true;
+                        saveGameState(gameState);
+                    }
+                    else {
+                        showMessage(heroSpeech, "The chest is empty", heroAudio);
+                    }
+                    break;
+                case "chestDoor":
+                    if (checkItem("key")) {
+                        showMessage(heroSpeech, "The door has opened :o", heroAudio);
+                        document.getElementById("chestDoor").remove();
+                        document.getElementById("hiddenRoom").remove();
+                        gameState.doorOpened = true;
+                        saveGameState(gameState);
+                    }
+                    else if (checkItem("coin")) {
+                        showMessage(heroSpeech, "You used a coin. \n"
+                            + "It wasn't very effective", heroAudio);
+                    }
+                    else {
+                        showMessage(heroSpeech, "sheiße the door is locked!", heroAudio);
+                    }
+                    break;
+                case "priestImg":
+                    showMessage(interactSpeech, "Welcome to the dungeon, be aware of great monsters", interactAudio);
+                    interactAvatar.style.opacity = 1;
+                    setTimeout(showMessage, 3000, heroSpeech, "Monsters?!", heroAudio);
+                    setTimeout(showMessage, 6000, interactSpeech, "Yea so what?", interactAudio);
+                    setTimeout(showMessage, 9000, heroSpeech, "I'm just so scared...", heroAudio);
+                    setTimeout(showMessage, 12000, interactSpeech, "What gives, just go and explore", interactAudio);
+                    setTimeout(function () { interactAvatar.style.opacity = 0; }, 15000);
+                    setTimeout(function () { priest.style.top = "576px" }, 16000)
+                    setTimeout(function () { priest.remove() }, 16500)
+                    setTimeout(function () { document.getElementById("hiddenRoom1").remove() }, 16500)
+                    break;
+                case "priest":
+                    showMessage(interactSpeech, "Welcome to the dungeon, be aware of great monsters", interactAudio);
+                    interactAvatar.style.opacity = 1;
+                    setTimeout(showMessage, 3000, heroSpeech, "Monsters?!", heroAudio);
+                    setTimeout(showMessage, 6000, interactSpeech, "Yea so what?", interactAudio);
+                    setTimeout(showMessage, 9000, heroSpeech, "I'm just so scared...", heroAudio);
+                    setTimeout(showMessage, 12000, interactSpeech, "What gives, just go and explore", interactAudio);
+                    setTimeout(function () { interactAvatar.style.opacity = 0; }, 15000);
+                    setTimeout(function () { priest.style.top = "576px" }, 16000)
+                    setTimeout(function () { priest.remove() }, 16500)
+                    setTimeout(function () { document.getElementById("hiddenRoom1").remove() }, 16500)
+                    break;
+                default:
+                    break;
+            }
+        }
+        setTimeout(function () { document.getElementById("walkAudio").pause(); }, 1000)
+    }
+}
 
 /**
  * add or remove item in the inventory
@@ -131,6 +179,7 @@ function changeInventory(itemName, action) {
             document.getElementById("inv-" + itemName).remove();
             break;
     }
+    updateInventory(gameState.inventory, inventoryList);
 }
 
 /**
@@ -168,7 +217,7 @@ function showMessage(targetBubble, message, targetSound) {
     targetSound.play();
     targetBubble.innerText = message;
     targetBubble.style.opacity = 1;
-    setTimeout(hideMessage, 4000, targetBubble, targetSound);
+    setTimeout(hideMessage, 3000, targetBubble, targetSound);
 }
 
 /**

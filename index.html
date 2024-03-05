@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!--make the class unclickable work-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,34 +28,62 @@
 
                 <!--left-->
                 <div id="heroAvatar" class="foreground">
-                    <img id="heroAvatarImg" src="assets/icons/hero.png" alt="hero avatar">
+                    <img id="heroAvatarImg" src="assets/icons/hero.png" alt="hero avatar" draggable="false">
                 </div>
                 <div id="heroSpeech" class="foreground speechBubble">
-                    hey yo
                 </div>
 
                 <!--right-->
                 <div id="interactSpeech" class="foreground speechBubble">
-                    yo hey
                 </div>
                 <div id="interactAvatar" class="foreground">
-                    <img id="interactImg" src="assets/icons/torch lighted.png" alt="interactAvatar">
+                    <img id="interactImg" src="assets/icons/priest mirrorerd.png" alt="interactAvatar"
+                        draggable="false">
                 </div>
                 <div id="brownBar" class="background"></div>
             </div>
         </div>
 
         <!--foreground elements-->
-        <div id="key" class="foreground"></div>
-        <div id="coin" class="foreground"></div>
-        <div id="chest" class="foreground"></div>
+        <div id="key" class="foreground">
+            <img src="assets/icons/key.png" alt="key" id="keyImg" draggable="false">
+        </div>
+        <div id="coin" class="foreground">
+            <img src="assets/icons/coin.png" alt="coin" id="coinImg" draggable="false">
+        </div>
+        <div id="chest" class="foreground">
+            <img src="assets/icons/wooden chest.png" alt="wooden chest" id="chestImg" draggable="false">
+        </div>
         <div id="chestDoor" class="foreground"></div>
-        <div id="torch" class="foreground"></div>
-        <div id="hiddenRoom" class="foreground"></div>
+        <div id="priest" class="foreground">
+            <img src="assets/icons/priest.png" alt="priest" id="priestImg" draggable="false">
+        </div>
+        <div id="standingTorch1" class="foreground">
+            <img src="assets/icons/standing torch unlighted.png" alt="standing torch unlighted" id="standingTorch1Img"
+                draggable="false">
+        </div>
+        <div id="standingTorch2" class="foreground">
+            <img src="assets/icons/standing torch unlighted.png" alt="standing torch unlighted" id="standingTorch2Img"
+                draggable="false">
+        </div>
+        <div id="standingTorch3" class="foreground">
+            <img src="assets/icons/standing torch unlighted.png" alt="standing torch unlighted" id="standingTorch3Img"
+                draggable="false">
+        </div>
+        <div id="hiddenRoom1" class="unclickable"></div>
+        <div id="hiddenRoom2" class="unclickable"></div>
+        <div id="hiddenRoom3" class="unclickable"></div>
+        <div id="hiddenRoom4" class="unclickable"></div>
+        <div id="hiddenRoom5" class="unclickable"></div>
+        <div id="hiddenRoom6" class="unclickable"></div>
 
         <!--hero-->
         <div id="hero" class="heroClass">
-            <img src="assets/icons/hero.png" alt="hero" id="heroImage" draggable="false" width="32" height="32">
+            <div class="heroRadius">
+
+            </div>
+            <img src="assets/icons/hero.png" alt="hero" id="heroImage" class="unclickable" draggable="false" width="32"
+                height="32">
         </div>
 
         <!--background elements-->
@@ -65,10 +95,13 @@
 
     <!--audio things-->
     <audio id="heroAudio">
-        <source src="audio/assets/assets/Gibberish - Sound Effect_01.mp3">
+        <source src="audio/talkin hero.mp3">
     </audio>
     <audio id="interactAudio">
-        <source src="audio/assets/assets/high pitch voice.mp3">
+        <source src="audio/talking interact.mp3">
+    </audio>
+    <audio id="walkAudio">
+        <source src="audio/walk sound.wav">
     </audio>
 </body>
 

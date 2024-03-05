@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Point and click adventure</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="title">
+        <h1 id="mainTitle">INTENSE TITLE</h1>
+    </div>
+    <div id="gameWindow">
+
+        <!--inventory box-->
+        <div id="inventoryBox" class="foreground">
+            <ul id="inventoryList">
+            </ul>
+        </div>
+
+        <!--dialog bar-->
+        <div id="dialogBar" class="foreground">
+            <div id="setMainDialog">
+
+                <!--left-->
+                <div id="heroAvatar" class="foreground">
+                    <img id="heroAvatarImg" src="assets/icons/hero.png" alt="hero avatar">
+                </div>
+                <div id="heroSpeech" class="foreground speechBubble">
+                </div>
+
+                <!--right-->
+                <div id="interactSpeech" class="foreground speechBubble">
+                </div>
+                <div id="interactAvatar" class="foreground">
+                    <img id="interactImg" src="assets/icons/torch lighted.png" alt="interactAvatar">
+                </div>
+                <div id="brownBar" class="background"></div>
+            </div>
+        </div>
+
+        <!--foreground elements-->
+        <div id="key" class="foreground">
+            <img src="assets/icons/key" alt="coin" id="keyImg">
+        </div>
+        <div id="coin" class="foreground">
+            <img src="assets/icons/coin" alt="coin" id="coinImg">
+        </div>
+        <div id="chest" class="foreground"></div>
+        <div id="chestDoor" class="foreground"></div>
+        <div id="torch" class="foreground"></div>
+        <div id="hiddenRoom" class="foreground"></div>
+
+        <!--hero-->
+        <div id="hero" class="heroClass">
+            <img src="assets/icons/hero.png" alt="hero" id="heroImage" draggable="false" width="32" height="32">
+        </div>
+
+        <!--background elements-->
+        <div id="tileMap" class="background">
+            <img src="assets/tilemaps/dungeon first floor.png" alt="tilemap" draggable="false" width="800" height="608">
+
+        </div>
+    </div>
+
+    <!--audio things-->
+    <audio id="heroAudio">
+        <source src="audio/assets/assets/Gibberish - Sound Effect_01.mp3">
+    </audio>
+    <audio id="interactAudio">
+        <source src="audio/assets/assets/high pitch voice.mp3">
+    </audio>
+</body>
+
+</html>
+
+<script src="js/main.js"></script>
