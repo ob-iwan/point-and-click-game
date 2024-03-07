@@ -144,6 +144,12 @@ body {
     height: 32px;
 }
 
+#standingTorchLighted1Img {
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+}
+
 #standingTorch2 {
     width: 32px;
     height: 32px;
@@ -156,6 +162,12 @@ body {
     height: 32px;
 }
 
+#standingTorchLighted2Img {
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+}
+
 #standingTorch3 {
     width: 32px;
     height: 32px;
@@ -166,6 +178,12 @@ body {
 #standingTorch3Img {
     width: 32px;
     height: 32px;
+}
+
+#standingTorchLighted3Img {
+    width: 32px;
+    height: 32px;
+    opacity: 0;
 }
 
 #priest {
@@ -203,7 +221,7 @@ body {
 }
 
 #hiddenRoom2 {
-    width: 160px;
+    width: 158px;
     height: 202px;
     background-color: #25131a;
     opacity: 0.95;
@@ -222,7 +240,7 @@ body {
 
 #hiddenRoom4 {
     width: 216px;
-    height: 144px;
+    height: 128px;
     background-color: #25131a;
     opacity: 0.95;
     left: 256px;

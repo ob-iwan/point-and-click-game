@@ -3,11 +3,11 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "tiled projects/icon saver.tmx",
+    "activeFile": "",
     "expandedProjectPaths": [
         ".",
-        "tiled projects",
-        "exports"
+        "exports",
+        "tiled projects"
     ],
     "exportAsImage.useCurrentScale": true,
     "fileStates": {
@@ -71,24 +71,24 @@
             "scale": 16,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 19.28125,
-                "y": 21.90625
+                "x": 19.21875,
+                "y": 21.84375
             }
         },
         "tiled projects/icon saver.tmx": {
             "scale": 78.85,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 6.79137603043754,
-                "y": 8.008877615726062
+                "x": 6.778693722257451,
+                "y": 7.996195307545974
             }
         },
         "tiled projects/minmap.tmx": {
             "scale": 8,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 284.8125,
-                "y": 158.1875
+                "x": 258.5625,
+                "y": 179.6875
             }
         }
     },
@@ -98,19 +98,14 @@
     "map.tileWidth": 16,
     "map.width": 1,
     "openFiles": [
-        "tiled projects/minmap.tmx",
-        "tiled projects/character saver.tmx",
-        "Dungeon_Tileset.tsx",
-        "Dungeon_Characters.tsx",
-        "tiled projects/icon saver.tmx"
     ],
     "project": "dungeon project.tiled-project",
     "recentFiles": [
-        "tiled projects/minmap.tmx",
+        "tiled projects/icon saver.tmx",
         "tiled projects/character saver.tmx",
+        "tiled projects/minmap.tmx",
         "Dungeon_Tileset.tsx",
         "Dungeon_Characters.tsx",
-        "tiled projects/icon saver.tmx",
         "character saver.tmx",
         "test map.tmx",
         "exports/test.tmx"
