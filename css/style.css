@@ -101,18 +101,6 @@ body {
     height: 32px;
 }
 
-#key {
-    width: 32px;
-    height: 32px;
-    left: 300px;
-    top: 300px;
-}
-
-#keyImg {
-    width: 32px;
-    height: 32px;
-}
-
 #chest {
     width: 32px;
     height: 32px;
@@ -265,7 +253,7 @@ body {
     top: 248px;
 }
 
-#tileMap {}
+/*#tileMap {}*/
 
 .background {
     position: absolute;

@@ -2,14 +2,13 @@
 let gameState = {
     "inventory": [],
     "hasSword": false,
-    "keyPickedUp": false,
     "coinPickedUp": false,
     "chestOpened": false,
-    "doorOpened": false,
+    "ladderOpened": false,
     "enemy1ded": false,
-    "enemy2ded": false,
-    "enemy3ded": false,
-    "enemy4ded": false
+    "candle1": false,
+    "candle2": false,
+    "candle3": false
 }
 
 //if ran removes data
@@ -27,7 +26,13 @@ if (Storage) {
 
 //audio's
 const lighting = document.getElementById("lighting");
+lighting.volume = 0.3;
 const backgroundMusic = document.getElementById("backgroundMusic");
+backgroundMusic.volume = 0.1;
+const heroAudio = document.getElementById("heroAudio");
+heroAudio.volume = 0.7;
+const interactAudio = document.getElementById("interactAudio");
+interactAudio.volume = 0.7;
 
 //game window reference
 const gameWindow = document.getElementById("gameWindow");
@@ -40,10 +45,6 @@ const hero = document.getElementById("hero");
 const offsetHero = 16;
 const priest = document.getElementById("priest");
 
-//audio for dialog
-const heroAudio = document.getElementById("heroAudio");
-const interactAudio = document.getElementById("interactAudio");
-
 //speechBubbles
 const heroSpeech = document.getElementById("heroSpeech");
 const interactSpeech = document.getElementById("interactSpeech");
@@ -51,25 +52,40 @@ const interactAvatar = document.getElementById("interactAvatar");
 
 //things
 const coin = document.getElementById("coin");
-const key = document.getElementById("key");
+const ladderLockedImg = document.getElementById("ladderLockedImg");
 
 //extra
 let playBackgroundMusic = true;
 
-if (gameState.keyPickedUp) {
-    document.getElementById("key").remove();
-}
+//gamestate check
 if (gameState.chestOpened) {
-
+    gameState.hasSword = true
 }
 if (gameState.coinPickedUp) {
-
+    coin.remove();
 }
-if (gameState.doorOpened) {
-
+if (gameState.ladderOpened) {
+    ladderLockedImg.remove();
 }
 if (gameState.hasSword) {
 
+}
+if (gameState.candle1) {
+    document.getElementById("hiddenRoom5").remove();
+    document.getElementById("hiddenRoom6").remove();
+    document.getElementById("standingTorch1Img").remove();
+    document.getElementById("standingTorchLighted1Img").style.opacity = 1;
+}
+if (gameState.candle2) {
+    document.getElementById("hiddenRoom2").remove();
+    document.getElementById("hiddenRoom4").remove();
+    document.getElementById("standingTorch2Img").remove();
+    document.getElementById("standingTorchLighted2Img").style.opacity = 1;
+}
+if (gameState.candle3) {
+    document.getElementById("hiddenRoom3").remove();
+    document.getElementById("standingTorch3Img").remove();
+    document.getElementById("standingTorchLighted3Img").style.opacity = 1;
 }
 
 updateInventory(gameState.inventory, inventoryList);
@@ -108,30 +124,11 @@ gameWindow.onclick = function (e) {
                     gameState.coinPickedUp = true;
                     saveGameState(gameState);
                     break;
-                case "keyImg":
-                    showMessage(heroSpeech, "you've found a key!", heroAudio);
-                    document.getElementById("key").remove();
-                    changeInventory("key", "add");
-                    gameState.keyPickedUp = true;
-                    saveGameState(gameState);
-                    break;
-                case "chestImg":
-                    if (!gameState.hasSword) {
-                        showMessage(heroSpeech, "you've found a sword!", heroAudio);
-                        changeInventory("sword", "add");
-                        gameState.hasSword = true;
-                        gameState.chestOpened = true;
-                        saveGameState(gameState);
-                    }
-                    else {
-                        showMessage(heroSpeech, "The chest is empty", heroAudio);
-                    }
-                    break;
-                case "chestDoor":
+                case "ladderLockedImg":
                     if (checkItem("key")) {
-                        showMessage(heroSpeech, "The door has opened :o", heroAudio);
+                        showMessage(heroSpeech, "The ladder has opened :o", heroAudio);
                         document.getElementById("chestDoor").remove();
-                        gameState.doorOpened = true;
+                        gameState.ladderOpened = true;
                         saveGameState(gameState);
                     }
                     else if (checkItem("coin")) {
@@ -139,7 +136,7 @@ gameWindow.onclick = function (e) {
                             + "It wasn't very effective", heroAudio);
                     }
                     else {
-                        showMessage(heroSpeech, "sheiße the door is locked!", heroAudio);
+                        showMessage(heroSpeech, "sheiße the ladder is locked!", heroAudio);
                     }
                     break;
                 case "priestImg":
@@ -149,7 +146,10 @@ gameWindow.onclick = function (e) {
                     setTimeout(showMessage, 4000, heroSpeech, "Monsters?!", heroAudio);
                     setTimeout(showMessage, 7000, interactSpeech, "Yea so what?", interactAudio);
                     setTimeout(showMessage, 10000, heroSpeech, "I'm just so scared...", heroAudio);
-                    setTimeout(showMessage, 13000, interactSpeech, "What gives, just go and explore", interactAudio);
+                    setTimeout(showMessage, 13000, interactSpeech, "What gives, here's a sword you will need it", interactAudio);
+                    changeInventory("sword", "add");
+                    gameState.hasSword = true;
+                    saveGameState(gameState);
                     setTimeout(function () { interactAvatar.style.opacity = 0; }, 16000);
                     setTimeout(function () { priest.style.top = "576px" }, 17000)
                     setTimeout(function () { priest.remove() }, 17500)
@@ -162,7 +162,10 @@ gameWindow.onclick = function (e) {
                     setTimeout(showMessage, 4000, heroSpeech, "Monsters?!", heroAudio);
                     setTimeout(showMessage, 7000, interactSpeech, "Yea so what?", interactAudio);
                     setTimeout(showMessage, 10000, heroSpeech, "I'm just so scared...", heroAudio);
-                    setTimeout(showMessage, 13000, interactSpeech, "What gives, just go and explore", interactAudio);
+                    setTimeout(showMessage, 13000, interactSpeech, "What gives, here's a sword you will need it", interactAudio);
+                    setTimeout(function () { changeInventory("sword", "add"); }, 13000)
+                    setTimeout(function () { gameState.hasSword = true; }, 13000)
+                    saveGameState(gameState);
                     setTimeout(function () { interactAvatar.style.opacity = 0; }, 16000);
                     setTimeout(function () { priest.style.top = "576px" }, 17000)
                     setTimeout(function () { priest.remove() }, 17500)
@@ -176,6 +179,8 @@ gameWindow.onclick = function (e) {
                         document.getElementById("hiddenRoom4").remove();
                         document.getElementById("standingTorch2Img").remove();
                         document.getElementById("standingTorchLighted2Img").style.opacity = 1;
+                        gameState.candle2 = true;
+                        saveGameState(gameState);
                         lighting.play();
                     }, 1000);
                     break;
@@ -187,6 +192,8 @@ gameWindow.onclick = function (e) {
                         document.getElementById("hiddenRoom6").remove();
                         document.getElementById("standingTorch1Img").remove();
                         document.getElementById("standingTorchLighted1Img").style.opacity = 1;
+                        gameState.candle1 = true;
+                        saveGameState(gameState);
                         lighting.play();
                     }, 1000);
                     break;
@@ -197,6 +204,8 @@ gameWindow.onclick = function (e) {
                         document.getElementById("hiddenRoom3").remove();
                         document.getElementById("standingTorch3Img").remove();
                         document.getElementById("standingTorchLighted3Img").style.opacity = 1;
+                        gameState.candle3 = true;
+                        saveGameState(gameState);
                         lighting.play();
                     }, 1000);
                     break;
