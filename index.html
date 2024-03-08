@@ -11,8 +11,15 @@
 </head>
 
 <body>
+    <!--end screen-->
+    <div id="endScreen" class="background"> <br> You climb down the ladder deeper into the dungeon <br>
+        What mysteries shall you encounter <br> <br>
+        Coming soon
+    </div>
+
     <div id="title">
-        <h1 id="mainTitle">INTENSE TITLE</h1>
+        <h1 id="mainTitle">Creepy dungeon</h1>
+        <h5 id="mainTitle">*Hell yeah*</h5>
     </div>
     <div id="gameWindow">
 
@@ -40,7 +47,14 @@
                 </div>
                 <div id="interactAvatar" class="foreground">
                     <img id="interactImg" src="assets/icons/priest mirrorerd.png" alt="interactAvatar"
-                        draggable="false">
+                        class="foreground" draggable="false">
+                </div>
+                <div id="skeletonSpeech" class="foreground speechBubble">
+                    ...
+                </div>
+                <div id="skeletonGhost" class="foreground">
+                    <img id="skeletonGhostImg" src="assets/icons/skeleton ghost.png" alt="skeletonGhost"
+                        class="foreground" draggable="false">
                 </div>
                 <div id="brownBar" class="background"></div>
             </div>
@@ -50,10 +64,6 @@
         <div id="coin" class="foreground">
             <img src="assets/icons/coin.png" alt="coin" id="coinImg" draggable="false">
         </div>
-        <div id="chest" class="foreground">
-            <img src="assets/icons/wooden chest.png" alt="wooden chest" id="chestImg" draggable="false">
-        </div>
-        <div id="chestDoor" class="foreground"></div>
         <div id="priest" class="foreground">
             <img src="assets/icons/priest.png" alt="priest" id="priestImg" draggable="false">
         </div>
@@ -75,6 +85,19 @@
             <img src="assets/icons/standing torch unlighted.png" alt="standing torch unlighted" id="standingTorch3Img"
                 class="foreground" draggable="false">
         </div>
+        <div id="ladder" class="foreground">
+            <img src="assets/icons/ladder opened.png" alt="ladder opened" id="ladderOpenedImg" class="foreground"
+                draggable="false">
+            <img src="assets/icons/ladder closed.png" alt="ladder locked" id="ladderLockedImg" class="foreground"
+                draggable="false">
+        </div>
+        <div id="enemy" class="foreground">
+            <img src="assets/icons/skeleton knife.png" alt="skeleton with knife" id="enemyImg" class="forground"
+                draggable="false">
+            <img src="assets/icons/ghost.png" alt="" id="deathFireImg" class="foreground" draggable="false">
+        </div>
+
+        <!--hiding blocks-->
         <div id="hiddenRoom1" class="unclickable"></div>
         <div id="hiddenRoom2" class="unclickable"></div>
         <div id="hiddenRoom3" class="unclickable"></div>
@@ -113,6 +136,27 @@
     </audio>
     <audio id="backgroundMusic">
         <source src="audio/background music better final.mp4">
+    </audio>
+    <audio id="kaboom">
+        <source src="audio/kaboom.wav">
+    </audio>
+    <audio id="spooky">
+        <source src="audio/spooky.wav">
+    </audio>
+    <audio id="jump">
+        <source src="audio/jump.wav">
+    </audio>
+    <audio id="coin">
+        <source src="audio/coin.wav">
+    </audio>
+    <audio id="slash">
+        <source src="audio/slash.wav">
+    </audio>
+    <audio id="ladderSound">
+        <source src="audio/ladderSound.wav">
+    </audio>
+    <audio id="end music">
+        <source src="audio/background music final.mp4">
     </audio>
 </body>
 

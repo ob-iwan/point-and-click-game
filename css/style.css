@@ -92,32 +92,13 @@ body {
 #coin {
     width: 32px;
     height: 32px;
-    left: 230px;
-    top: 50px;
+    left: 160px;
+    top: 478px;
 }
 
 #coinImg {
     width: 32px;
     height: 32px;
-}
-
-#chest {
-    width: 32px;
-    height: 32px;
-    left: 704px;
-    top: 32px;
-}
-
-#chestImg {
-    width: 32px;
-    height: 32px;
-}
-
-#chestDoor {
-    width: 64px;
-    height: 32px;
-    top: 128px;
-    left: 640px;
 }
 
 #standingTorch1 {
@@ -199,6 +180,108 @@ body {
     height: 32px;
 }
 
+#ladder {
+    width: 32px;
+    height: 32px;
+    top: 200px;
+    left: 300px;
+}
+
+#ladderLockedImg {
+    width: 32px;
+    height: 32px;
+}
+
+#ladderOpenedImg {
+    width: 32px;
+    height: 32px;
+}
+
+#enemy {
+    width: 32px;
+    height: 32px;
+    top: 96px;
+    left: 608px;
+}
+
+#enemyImg {
+    width: 32px;
+    height: 32px;
+    transform: rotateY(180deg);
+}
+
+#deathFireImg {
+    width: 32px;
+    height: 32px;
+    opacity: 0;
+}
+
+#skeletonGhost {
+    width: 96px;
+    height: 96px;
+    right: 0px;
+    top: -26px;
+    opacity: 0;
+}
+
+#skeletonGhostImg {
+    width: 96px;
+    height: 96px;
+    transform: rotateY(180deg);
+}
+
+/*#tileMap {}*/
+
+
+
+/*classes*/
+
+.background {
+    position: absolute;
+    z-index: 0;
+}
+
+.heroClass {
+    position: absolute;
+    z-index: 1000;
+    top: 550px;
+    left: 384px;
+    transition: all 1s ease;
+}
+
+.foreground {
+    position: absolute;
+    z-index: 500;
+    transition: all 1s ease;
+}
+
+.speechBubble {
+    border-radius: 60px;
+    padding: 5px 20px 5px 20px;
+    user-select: none;
+    cursor: default;
+}
+
+.unclickable {
+    position: absolute;
+    z-index: 2000;
+    transition: all 1s ease;
+}
+
+
+/*hiding blocks*/
+
+#endScreen {
+    width: 800px;
+    height: 608px;
+    background-color: #3a141b;
+    color: white;
+    grid-column-start: 2;
+    grid-row-start: 2;
+    position: relative;
+    opacity: 0;
+}
+
 #hiddenRoom1 {
     width: 300px;
     height: 280px;
@@ -251,38 +334,4 @@ body {
     opacity: 0.95;
     left: 556px;
     top: 248px;
-}
-
-/*#tileMap {}*/
-
-.background {
-    position: absolute;
-    z-index: 0;
-}
-
-.heroClass {
-    position: absolute;
-    z-index: 100;
-    top: 550px;
-    left: 384px;
-    transition: all 1s ease;
-}
-
-.foreground {
-    position: absolute;
-    z-index: 1000;
-    transition: all 1s ease;
-}
-
-.speechBubble {
-    border-radius: 60px;
-    padding: 5px 20px 5px 20px;
-    user-select: none;
-    cursor: default;
-}
-
-.unclickable {
-    position: absolute;
-    z-index: 2000;
-    transition: all 1s ease;
 }
